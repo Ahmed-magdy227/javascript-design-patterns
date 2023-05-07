@@ -1,0 +1,22 @@
+class PurchaseHandler {
+  processPayment(paymentDetails, amount) {
+    const paymentSuccess = PaymentHandler.requestPayment(
+      (this.paymentDetails = paymentDetails),
+      (this.amount = amount)
+    );
+
+    if (paymentSuccess) {
+      // Do something
+      return true;
+    }
+
+    // Do something
+    return false;
+  }
+}
+
+class PaymentHandler {
+  requestPayment(paymentDetails, amount) {
+    return PayPal.requestPayment(paymentDetails, amount);
+  }
+}
